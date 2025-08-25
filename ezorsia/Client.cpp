@@ -370,7 +370,9 @@ void Client::ApplyMods() {
 	Logger::Info("[Client] Applying hair range fix");
 
 	// force window to be created in windowed mode
-	Memory::WriteInt(0x009F7A9B + 1, 0);
+	// Memory::WriteInt(0x009F7A9B + 1, 0);
+	BYTE patch[4] = { 0xB8, 0x00, 0x00, 0x00 };
+	Memory::WriteMemory(0x009F7A9B, patch, sizeof(patch));	// mov eax, 0
 
 	// CLogo start-up animation
 	Memory::FillBytes(0x0062EE54, 0x90, 21);

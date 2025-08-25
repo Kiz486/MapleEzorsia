@@ -19,6 +19,7 @@ public:
 	static void WriteBytes(DWORD dwOriginAddress, ...);
 	static void WriteShort(DWORD dwOriginAddress, unsigned short usValue);
 	static void WriteInt(DWORD dwOriginAddress, unsigned int dwValue);
+	static void WriteMemory(DWORD dwOriginAddress, const void* src, size_t nSize);
 	static void CodeCave(void* ptrCodeCave, DWORD dwOriginAddress, int nNOPCount);
 };
 
